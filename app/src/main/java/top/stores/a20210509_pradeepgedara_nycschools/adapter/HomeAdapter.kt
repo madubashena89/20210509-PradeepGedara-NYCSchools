@@ -40,7 +40,6 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
 
 
 
-//        viewHolder.movieImage.text =  messages?.get(index)?.message
         viewHolder.btnSeeMore.setOnClickListener {
             val movieDetailsFragment = SchoolsDetailsFragment()
             val bundle = Bundle()
