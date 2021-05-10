@@ -13,7 +13,7 @@ class HomeViewModel (application: Application) : AndroidViewModel(application){
 
     private var repository: Repository = Repository(application)
 
-    fun getMovies() = repository.getMovies()
+    fun getMovies() = repository.getSchools()
 
 //    fun setMessage(movie: MovieEntity) { repository.setMovies(movie)}
 

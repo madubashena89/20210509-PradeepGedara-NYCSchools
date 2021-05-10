@@ -33,13 +33,13 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.movieTitleTv.text = schoolsList?.get(position)?.title
-        viewHolder.movieRatingTV.text = schoolsList?.get(position)?.voteAverage.toString()
-        viewHolder.movieRelaseDateTv.text =  schoolsList?.get(position)?.releaseDate
+        viewHolder.movieTitleTv.text = schoolsList?.get(position)?.schoolName
+        viewHolder.movieRatingTV.text = schoolsList?.get(position)?.email.toString()
+        viewHolder.movieRelaseDateTv.text =  schoolsList?.get(position)?.phoneNumber
         viewHolder.overViewHome.text =  schoolsList?.get(position)?.overview
 
 
-        val imageUrl = VolleyNetworkManager.IMAGE_CONSTANT+ schoolsList?.get(position)?.backdropPath
+        val imageUrl = VolleyNetworkManager.IMAGE_CONSTANT+ schoolsList?.get(position)?.city
         Picasso.get()
             .load(Uri.parse(imageUrl)) // internet path
             .placeholder(R.mipmap.ic_launcher)
@@ -51,11 +51,11 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
             val movieDetailsFragment = SchoolsDetailsFragment()
             val bundle = Bundle()
             bundle.putInt("POSITION", position)
-            bundle.putString("TITLE", schoolsList?.get(position)?.title)
-            bundle.putString("RATING", schoolsList?.get(position)?.voteAverage.toString())
-            bundle.putString("RELEASEDATE", schoolsList?.get(position)?.releaseDate)
+            bundle.putString("TITLE", schoolsList?.get(position)?.schoolName)
+            bundle.putString("RATING", schoolsList?.get(position)?.email.toString())
+            bundle.putString("RELEASEDATE", schoolsList?.get(position)?.phoneNumber)
             bundle.putString("OVERVIEW", schoolsList?.get(position)?.overview)
-            bundle.putString("POSTERURL", schoolsList?.get(position)?.posterPath)
+            bundle.putString("POSTERURL", schoolsList?.get(position)?.schoolWebsite)
             movieDetailsFragment.arguments = bundle
             moveToFragment(movieDetailsFragment)
         }

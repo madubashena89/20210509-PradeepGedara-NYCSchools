@@ -1,10 +1,17 @@
 package top.stores.a20210509_pradeepgedara_nycschools.network
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import org.json.JSONException
 import org.json.JSONObject
 import top.stores.a20210509_pradeepgedara_nycschools.dataBase.SchoolsEntity
@@ -14,37 +21,52 @@ import java.util.ArrayList
 object VolleyNetworkManager {
 
     const val IMAGE_CONSTANT = "https://image.tmdb.org/t/p/w500/"
-    // private val movieRepository = MovieRepository()
-
-    fun downloadData(application: Application){
-        val url: String = "https://api.themoviedb.org/4/list/1?page=1&api_key=d956f280a7d5133bcf5ca8233b99febf"
-        val movieEntities: MutableList<SchoolsEntity> = ArrayList<SchoolsEntity>()
 
 
-// get the json object
-        val objectRequest = JsonObjectRequest(
-            Request.Method.GET, url, null,
-                { response ->
-                    try {
-                        val movieList = response.getJSONArray("results")
-                        for (i in 0 until movieList.length()) {
-                            val newMovie = SchoolsEntity()
-                            val detailsOfMovieFromApi = movieList[i] as JSONObject
-                            val gson = Gson()
-                            val entity : SchoolsEntity = gson.fromJson(detailsOfMovieFromApi.toString(), SchoolsEntity::class.java)
-                            Log.d("EntityValues", "$entity")
-                            movieEntities.add(entity)
-                        }
-                        var repository : Repository = Repository(application)
-                        repository.setMoviesList(movieEntities) // insert into the room database
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
 
-                },
-                { error ->
-                    error.printStackTrace() })
-        VolleySingleton.getInstance(application.applicationContext).addToRequestQueue(objectRequest)
+    fun downloadData(application: Application) {
+        val PROJECT_URL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
+
+
+        val localJReq: JsonArrayRequest = object : JsonArrayRequest(PROJECT_URL,
+            Response.Listener {
+
+                try {
+                    var schoolData: List<SchoolsEntity> = ArrayList()
+                    val data = it
+                    val gson = GsonBuilder().create()
+                    val collectionType =
+                        object : TypeToken<ArrayList<SchoolsEntity>>() {}.type
+
+
+                    schoolData = gson.fromJson(
+                        data.toString(),
+                        collectionType
+                    )
+                    var repository : Repository = Repository(application)
+                    repository.setSchoolsList(schoolData) // insert into the room database
+
+                    //  var repository: ProjectsRepository = ProjectsRepository(application)
+                    // insert into the room database
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            Response.ErrorListener {
+                Toast.makeText(
+                    application.applicationContext,
+                    "Sorry Something went wrong from our end when loading the projects!!",
+                    Toast.LENGTH_LONG
+                ).show()
+
+            })
+        {
+
+
+
+        }
+        VolleySingleton.getInstance(application.applicationContext).addToRequestQueue(localJReq)
+
     }
 
 }

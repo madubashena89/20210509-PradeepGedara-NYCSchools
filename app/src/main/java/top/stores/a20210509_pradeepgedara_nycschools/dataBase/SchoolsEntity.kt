@@ -9,32 +9,32 @@ import org.jetbrains.annotations.NotNull
 class SchoolsEntity {
 
     @NotNull
-    @SerializedName("id")
-    @ColumnInfo(name = "id")
-    var movieID : String? = null
+    @SerializedName("dbn")
+    @ColumnInfo(name = "dbn")
+    var schoolID : String? = null
 
-    @SerializedName("title")
-    @ColumnInfo(name = "title")
-    var title : String? = null
+    @SerializedName("school_name")
+    @ColumnInfo(name = "school_name")
+    var schoolName : String? = null
 
-    @SerializedName("release_date")
-    @ColumnInfo(name = "release_date")
-    var releaseDate : String? = null
+    @SerializedName("phone_number")
+    @ColumnInfo(name = "phone_number")
+    var phoneNumber : String? = null
 
-    @SerializedName("vote_average")
-    @ColumnInfo(name = "vote_average")
-    var voteAverage : Double = 0.0
+    @SerializedName("school_email")
+    @ColumnInfo(name = "school_email")
+    var email : Double = 0.0
 
-    @SerializedName("poster_path")
-    @ColumnInfo(name = "poster_path")
-    var posterPath : String? = null
+    @SerializedName("website")
+    @ColumnInfo(name = "website")
+    var schoolWebsite : String? = null
 
-    @SerializedName("backdrop_path")
-    @ColumnInfo(name = "backdrop_path")
-    var backdropPath : String? = null
+    @SerializedName("city")
+    @ColumnInfo(name = "city")
+    var city : String? = null
 
-    @SerializedName("overview")
-    @ColumnInfo(name = "overview")
+    @SerializedName("overview_paragraph")
+    @ColumnInfo(name = "overview_paragraph")
     var overview : String? = null
 
 //    @Ignore

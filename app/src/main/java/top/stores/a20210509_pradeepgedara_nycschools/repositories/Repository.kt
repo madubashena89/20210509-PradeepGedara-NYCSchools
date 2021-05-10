@@ -23,12 +23,12 @@ class Repository (application: Application) : CoroutineScope {
         VolleyNetworkManager.downloadData(application)
     }
 
-    fun getMovies() = schoolsDao?.getAllMovies()
+    fun getSchools() = schoolsDao?.getAllMovies()
 
     fun getMoviesList() = schoolsDao?.getAllMovies()
 
 
-    fun setMoviesList(movieslist: List<SchoolsEntity>) {
+    fun setSchoolsList(movieslist: List<SchoolsEntity>) {
         launch  { movieslist.forEach{
             setMessageBG(it)
         } }
