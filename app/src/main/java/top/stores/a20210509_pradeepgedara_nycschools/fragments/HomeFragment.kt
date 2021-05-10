@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
 //    }
 
     fun setUpAdapterWithList(recyclerView: RecyclerView, viewModel: HomeViewModel){
-        adapter = HomeAdapter(activity, viewModel.getMovies())
+        adapter = HomeAdapter(activity, viewModel.getSchools(requireActivity()!!.applicationContext))
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.stackFromEnd =true
         recyclerView.layoutManager = layoutManager

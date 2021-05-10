@@ -7,26 +7,29 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [SchoolsEntity::class], version = 2)
 abstract class AppDataBase : RoomDatabase(){
-    abstract fun movieDao(): SchoolsDao
-
+    abstract fun schoolDao(): SchoolsDao
 
     companion object {
+
         @Volatile
         private var INSTANCE: AppDataBase? = null
 
-        fun getDatabase(context: Context): AppDataBase? {
-            if (INSTANCE == null) {
-                synchronized(AppDataBase::class.java) {
-                    if (INSTANCE == null) {
-                        INSTANCE = Room.databaseBuilder(
-                            context.applicationContext,
-                            AppDataBase::class.java, "schools_database").allowMainThreadQueries()
-                            .fallbackToDestructiveMigration()
-                            .build()
-                    }
-                }
+        fun getDataseClient(context: Context) : AppDataBase {
+
+            if (INSTANCE != null) return INSTANCE!!
+
+            synchronized(this) {
+
+                INSTANCE = Room
+                    .databaseBuilder(context, AppDataBase::class.java, "APP_DATABASE")
+                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .build()
+
+                return INSTANCE!!
+
             }
-            return INSTANCE
         }
+
     }
 }

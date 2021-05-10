@@ -65,19 +65,6 @@ class SchoolsDetailsFragment : Fragment() {
     }
 
 
-    fun setUpScreenWithIntent(){
-        var moviewList = viewModel.getMovies()
-        binding.apply {
-            tvMovieTitleDetails.text = Intent().extras?.getString("TITLE")
-            tvRankingDetails.text = Intent().extras?.getString("RATING")
-            tvReleaseDateDetails.text = Intent().extras?.getString("RELEASEDATE")
-            tvOverviewDetails.text = Intent().extras?.getString("OVERVIEW")
-            btnBackDetails.setOnClickListener {
-
-            }
-        }
-    }
-
 
     private fun moveToFragment(fragment : Fragment){
         val fragmentTrans = (context as AppCompatActivity).supportFragmentManager.beginTransaction()

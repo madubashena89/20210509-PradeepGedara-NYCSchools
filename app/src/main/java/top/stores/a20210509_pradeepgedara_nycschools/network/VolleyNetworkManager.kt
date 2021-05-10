@@ -26,6 +26,8 @@ object VolleyNetworkManager {
 
     fun downloadData(application: Application) {
         val PROJECT_URL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
+        var schoolEntities: MutableList<SchoolsEntity> = ArrayList<SchoolsEntity>()
+
 
 
         val localJReq: JsonArrayRequest = object : JsonArrayRequest(PROJECT_URL,
@@ -43,8 +45,12 @@ object VolleyNetworkManager {
                         data.toString(),
                         collectionType
                     )
-                    var repository : Repository = Repository(application)
-                    repository.setSchoolsList(schoolData) // insert into the room database
+                    schoolEntities?.let { it1 ->
+                        Repository.setSchoolList(
+                            application,
+                            it1
+                        )
+                    }
 
                     //  var repository: ProjectsRepository = ProjectsRepository(application)
                     // insert into the room database

@@ -8,15 +8,21 @@ import androidx.room.Query
 @Dao
 interface SchoolsDao {
 
-    @Query("SELECT * FROM movie_table")
-    fun getAllMovies() : List<SchoolsEntity>
+    @Query("SELECT * FROM schools_table")
+    fun getAllSchools() : List<SchoolsEntity>
 
-    @Query("DELETE FROM movie_table")
+    @Query("DELETE FROM schools_table")
     fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun setMoviesList(schoolsList: List<SchoolsEntity>)
+    fun setSchoolList(schoolsList: List<SchoolsEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun setMovie(schoolsList: SchoolsEntity)
+    fun setSchool(schoolsList: SchoolsEntity)
+
+    @Query("SELECT * FROM schools_table")
+    fun getAllProjects(): List<SchoolsEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun setSchoolList(movieList: SchoolsEntity?)
 }

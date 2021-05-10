@@ -5,7 +5,7 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import org.jetbrains.annotations.NotNull
 
-@Entity(tableName = "movie_table", primaryKeys = ["id"])
+@Entity(tableName = "schools_table", primaryKeys = ["id"])
 class SchoolsEntity {
 
     @NotNull
