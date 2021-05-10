@@ -39,12 +39,6 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
         viewHolder.overViewHome.text =  schoolsList?.get(position)?.overview
 
 
-        val imageUrl = VolleyNetworkManager.IMAGE_CONSTANT+ schoolsList?.get(position)?.city
-        Picasso.get()
-            .load(Uri.parse(imageUrl)) // internet path
-            .placeholder(R.mipmap.ic_launcher)
-            .error(R.mipmap.ic_launcher_round)
-            .into(viewHolder.movieImage)
 
 //        viewHolder.movieImage.text =  messages?.get(index)?.message
         viewHolder.btnSeeMore.setOnClickListener {
@@ -70,7 +64,6 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
         var movieRelaseDateTv: TextView = itemView.findViewById(R.id.tv_release_date) as TextView
         var overViewHome: TextView = itemView.findViewById(R.id.over_view_home) as TextView
 
-        var movieImage: ImageView = itemView.findViewById(R.id.movies_card_image_view) as ImageView
         var btnSeeMore: Button = itemView.findViewById(R.id.btn_see_more) as Button
 
     }

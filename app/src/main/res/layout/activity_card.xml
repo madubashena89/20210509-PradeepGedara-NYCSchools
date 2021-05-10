@@ -21,23 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/movies_card_image_view"
-                android:layout_width="107dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="216dp"
-                android:layout_marginLeft="216dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.547"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.257"
-                tools:srcCompat="@tools:sample/avatars" />
+
 
             <TextView
                 android:id="@+id/tv_movies_title_card"
@@ -53,10 +37,9 @@
 
             <TextView
                 android:id="@+id/tv_movies_rating"
-                android:layout_width="196dp"
-                android:layout_height="26dp"
+                android:layout_width="237dp"
+                android:layout_height="22dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,28 +50,32 @@
                 android:id="@+id/btn_see_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="See more"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
                 android:background="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="@+id/movies_card_image_view"
-                app:layout_constraintStart_toStartOf="@+id/movies_card_image_view"
-                app:layout_constraintTop_toBottomOf="@+id/movies_card_image_view" />
+                android:text="See more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.687"
+                app:layout_constraintStart_toEndOf="@+id/over_view_home" />
 
             <TextView
                 android:id="@+id/over_view_home"
-                android:layout_width="198dp"
-                android:layout_height="96dp"
+                android:layout_width="239dp"
+                android:layout_height="99dp"
                 android:layout_marginTop="8dp"
                 android:lines="5"
                 android:maxLines="5"
                 app:layout_constraintEnd_toEndOf="@+id/tv_release_date"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tv_release_date"
                 app:layout_constraintTop_toBottomOf="@+id/tv_release_date" />
 
             <TextView
                 android:id="@+id/tv_release_date"
-                android:layout_width="199dp"
-                android:layout_height="28dp"
+                android:layout_width="238dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/tv_movies_rating"
                 app:layout_constraintHorizontal_bias="0.0"

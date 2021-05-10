@@ -12,19 +12,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import top.stores.a20210509_pradeepgedara_nycschools.R
-import top.stores.a20210509_pradeepgedara_nycschools.databinding.FragmentMovieDetailsBinding
+import top.stores.a20210509_pradeepgedara_nycschools.databinding.FragmentSchoolsDetailsBinding
 import top.stores.a20210509_pradeepgedara_nycschools.network.VolleyNetworkManager
 import top.stores.a20210509_pradeepgedara_nycschools.viewmodel.HomeViewModel
 
 
 class SchoolsDetailsFragment : Fragment() {
 
-    private lateinit var binding : FragmentMovieDetailsBinding
+    private lateinit var binding : FragmentSchoolsDetailsBinding
     private lateinit var viewModel : HomeViewModel
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentMovieDetailsBinding.inflate(inflater,container,false)
+        binding = FragmentSchoolsDetailsBinding.inflate(inflater,container,false)
 
         activity?.let {
             viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
