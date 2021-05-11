@@ -33,10 +33,10 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.movieTitleTv.text = schoolsList?.get(position)?.schoolName
-        viewHolder.movieRatingTV.text = schoolsList?.get(position)?.email.toString()
-        viewHolder.movieRelaseDateTv.text =  schoolsList?.get(position)?.phoneNumber
-        viewHolder.overViewHome.text =  schoolsList?.get(position)?.overview
+        viewHolder.schoolName.text = schoolsList?.get(position)?.schoolName
+        viewHolder.email.text = schoolsList?.get(position)?.email.toString()
+        viewHolder.phoneNumber.text =  schoolsList?.get(position)?.phoneNumber
+        viewHolder.overview.text =  schoolsList?.get(position)?.overview
 
 
 
@@ -58,10 +58,10 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
 
     inner class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
 
-        var movieTitleTv: TextView = itemView.findViewById(R.id.tv_movies_title_card) as TextView
-        var movieRatingTV: TextView = itemView.findViewById(R.id.tv_movies_rating) as TextView
-        var movieRelaseDateTv: TextView = itemView.findViewById(R.id.tv_release_date) as TextView
-        var overViewHome: TextView = itemView.findViewById(R.id.over_view_home) as TextView
+        var schoolName: TextView = itemView.findViewById(R.id.tv_movies_title_card) as TextView
+        var email: TextView = itemView.findViewById(R.id.tv_movies_rating) as TextView
+        var phoneNumber: TextView = itemView.findViewById(R.id.tv_release_date) as TextView
+        var overview: TextView = itemView.findViewById(R.id.over_view_home) as TextView
 
         var btnSeeMore: Button = itemView.findViewById(R.id.btn_see_more) as Button
 
