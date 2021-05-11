@@ -44,11 +44,11 @@ class HomeAdapter(private val context: Context?, private val schoolsList: List<S
             val movieDetailsFragment = SchoolsDetailsFragment()
             val bundle = Bundle()
             bundle.putInt("POSITION", position)
-            bundle.putString("TITLE", schoolsList?.get(position)?.schoolName)
-            bundle.putString("RATING", schoolsList?.get(position)?.email.toString())
-            bundle.putString("RELEASEDATE", schoolsList?.get(position)?.phoneNumber)
+            bundle.putString("Name", schoolsList?.get(position)?.schoolName)
+            bundle.putString("Email", schoolsList?.get(position)?.email.toString())
+            bundle.putString("PhoneNumber", schoolsList?.get(position)?.phoneNumber)
             bundle.putString("OVERVIEW", schoolsList?.get(position)?.overview)
-            bundle.putString("POSTERURL", schoolsList?.get(position)?.schoolWebsite)
+            bundle.putString("WebSite", schoolsList?.get(position)?.schoolWebsite)
             movieDetailsFragment.arguments = bundle
             moveToFragment(movieDetailsFragment)
         }
